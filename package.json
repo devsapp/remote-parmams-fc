@@ -1,0 +1,31 @@
+{
+  "name": "serverless-devs-plugin",
+  "version": "0.0.1",
+  "description": "This is a component demo for Serverless Devs Tool ",
+  "autoInstall": false,
+  "homepage": "https://www.serverless-devs.com",
+  "author": "Serverless-Devs",
+  "contributors": [],
+  "license": "MIT",
+  "main": "./src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "Serverless",
+    "Framework",
+    "Serverless-Devs",
+    "Serverless-Tool",
+    "Function Compute"
+  ],
+  "scripts": {
+    "build": "npm run esbuild",
+    "esbuild": "esbuild src/index.ts --bundle --log-level=error --minify --platform=node --format=cjs --target=node10.4 --external:@serverless-devs/core --outfile=dist/index.js"
+  },
+  "dependencies": {
+    "@serverless-devs/core": "latest"
+  },
+  "devDependencies": {
+    "esbuild": "^0.13.8"
+  }
+}
