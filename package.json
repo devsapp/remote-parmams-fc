@@ -19,13 +19,9 @@
     "Function Compute"
   ],
   "scripts": {
-    "prepub": "npm run build",
     "pub": "s cli registry publish"
   },
   "dependencies": {
     "@serverless-devs/core": "latest"
-  },
-  "devDependencies": {
-    "esbuild": "^0.13.8"
   }
 }
