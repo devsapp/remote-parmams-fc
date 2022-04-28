@@ -1,8 +1,13 @@
 edition: 1.0.0        #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
 name: component-test   #  项目名称
-# access: default # 密钥别名
-vars: # [全局变量，提供给各个服务使用]
-  domain: xxxx.yyy.com
+access: default-1 # 密钥别名
+# access: wss-root # 密钥别名
+vars: # 全局变量
+  # region: cn-beijing
+  region: cn-shenzhen
+  service:
+    name: test-wss
+    description: 'hello world by serverless devs'
 
 services:
   component:
@@ -11,8 +16,16 @@ services:
       pre-deploy:
         - plugin: ${path(..)} # 这里引入的是相对路径，正式配置替换成你自己的component名称即可
           args:
-            key1: value1
+            - function.description
+            - function.memorySize
     props:
-      name: hello
-      otherInput: world
-      envshow: ${env(USER)}
+      region: ${vars.region} 
+      service: ${vars.service}
+      function:
+        name: start-fc-event-nodejs14
+        description: '23'
+        runtime: nodejs12
+        codeUri: ./code
+        handler: index.handler
+        memorySize: 256
+        timeout: 60

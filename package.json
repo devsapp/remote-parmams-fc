@@ -19,8 +19,8 @@
     "Function Compute"
   ],
   "scripts": {
-    "build": "npm run esbuild",
-    "esbuild": "esbuild src/index.ts --bundle --log-level=error --minify --platform=node --format=cjs --target=node10.4 --external:@serverless-devs/core --outfile=dist/index.js"
+    "prepub": "npm run build",
+    "pub": "s cli registry publish"
   },
   "dependencies": {
     "@serverless-devs/core": "latest"
