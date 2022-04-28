@@ -2,7 +2,7 @@ Type: Plugin
 Name: remote-parmams-fc
 Provider:
   - 阿里云
-Version: 0.0.1
+Version: 0.0.2
 Description: 使用fc部署静态资源
 HomePage: https://github.com/devsapp/remote-parmams-fc
 Tags: #标签详情

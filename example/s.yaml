@@ -14,9 +14,11 @@ services:
     component: fc
     actions:
       pre-deploy:
-        - plugin: ${path(..)} # 这里引入的是相对路径，正式配置替换成你自己的component名称即可
+        # - plugin: ${path(..)} # 这里引入的是相对路径，正式配置替换成你自己的component名称即可
+        - plugin: remote-parmams-fc
           args:
             - function.description
+            - function.environmentVariables.test
             - function.memorySize
     props:
       region: ${vars.region} 
@@ -29,3 +31,5 @@ services:
         handler: index.handler
         memorySize: 256
         timeout: 60
+        environmentVariables:
+          test: value3
